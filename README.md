@@ -1,0 +1,3 @@
+## Dependencies
+
+react-simple-maps
