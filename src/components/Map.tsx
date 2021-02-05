@@ -4,8 +4,9 @@ import MapChart from './MapChart'
 const Map: FunctionComponent = () => {
     return (
       <div>
-        <p>US States</p>
+        <h1>US States</h1>
         <MapChart/>
+        //Data
       </div>
     );
 };
