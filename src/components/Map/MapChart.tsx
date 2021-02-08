@@ -9,10 +9,8 @@ import {
 } from "react-simple-maps";
 
 import allStates from "../../data/allstates.json";
-import { USStates } from "../Information/dataGetter"
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
-
 const offsets: any = {
   VT: [50, -8],
   NH: [34, 2],
@@ -25,11 +23,11 @@ const offsets: any = {
   DC: [49, 21]
 };
 
-const MapChart = () => {
+const MapChart = (props:any) => {
 
-  const handleClick = async (id:string) => {
-    let data = await USStates.getData(id)
-    //show data
+  const handleClick = async (e:any,id: string) => {
+    e.preventDefault();
+    props.handler(id)
   };
 
   return (
@@ -48,15 +46,15 @@ const MapChart = () => {
             {geographies.map(geo => {
               const centroid = geoCentroid(geo);
               const cur = allStates.find(s => s.val === geo.id);
-              return (
+              return (               
                 <g key={geo.rsmKey + "-name"}>
                   {cur &&
                     centroid[0] > -160 &&
                     centroid[0] < -67 &&
-                    (Object.keys(offsets).indexOf(cur.id) === -1 ? (
-                      <Marker coordinates={centroid}>
+                    (Object.keys(offsets).indexOf(cur.id) === -1 ? (                      
+                      <Marker coordinates={centroid}>                        
                         <text y="2" fontSize={14} textAnchor="middle">
-                          <a href="_blank" onClick={() => handleClick(cur.objectID)}>
+                          <a href='#' onClick={(e) => handleClick(e,cur.objectID)}>
                             {cur.id}
                           </a>
                         </text>
@@ -68,7 +66,7 @@ const MapChart = () => {
                         dy={offsets[cur.id][1]}
                       >
                         <text x={4} fontSize={14} alignmentBaseline="middle">
-                        <a href="_blank" onClick={() => handleClick(cur.objectID)}>
+                          <a href="_blank" onClick={(e) => handleClick(e,cur.objectID)}>
                             {cur.id}
                           </a>
                         </text>

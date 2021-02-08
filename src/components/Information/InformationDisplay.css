@@ -1,0 +1,12 @@
+.Flag {
+  height: 140px;
+  width: 200px;
+}
+
+.Display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 25%;
+  align-items: center;
+}

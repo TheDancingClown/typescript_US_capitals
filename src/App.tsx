@@ -1,14 +1,12 @@
 import React from 'react';
-import MapChart from './components/Map/MapChart'
+import Map from './components/map/Map'
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>US States</h1>
-        <MapChart/>
-        //Data
+      <Map/>
     </div>
   );
 }
