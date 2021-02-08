@@ -19,11 +19,11 @@ const InformationDisplay = (props:any) => {
   if(currentState.capital) {
     return (
       <div className="Display">
-        <img className="Flag" src={currentState.flag} />
-        <p>Name: {currentState.name}</p>
-        <p>Capital: {currentState.capital}</p>
-        <p>Population: {currentState.population}</p>
-        <p>Largest City: {currentState.largestCity}</p>
+        <h2>{currentState.name}</h2>
+        <img className="Flag" src={currentState.flag.replace(/16px|19px|20px|21px|22px|23px/, "250px")}/>
+        <h3>Capital: {currentState.capital}</h3>
+        <h3>Population: {currentState.population.toLocaleString()}</h3>
+        <h3>Largest City: {currentState.largestCity}</h3>
       </div>
     )
   } else {
