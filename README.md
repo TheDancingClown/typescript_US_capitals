@@ -4,6 +4,8 @@ A single page React app that connects a [react-simple-map](https://www.react-sim
 
 The app was created as an exercise in using Typescript.
 
+Try it out [here](https://lucid-clarke-4db2b1.netlify.app)
+
 ## Build
 
 A click event handler was added to the marker and annotation components of the react-simple-map.  
